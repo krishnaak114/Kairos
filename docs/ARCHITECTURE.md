@@ -1,4 +1,4 @@
-# 🏗️ Architecture Documentation
+#  Architecture Documentation
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## System Overview
 
-The Kair�sing System is designed as a **production-grade, stateless service** that processes heartbeat events from multiple services and detects when consecutive heartbeats are missed, triggering alerts based on configurable thresholds.
+The Kairsing System is designed as a **production-grade, stateless service** that processes heartbeat events from multiple services and detects when consecutive heartbeats are missed, triggering alerts based on configurable thresholds.
 
 ### Key Characteristics
 
@@ -94,33 +94,33 @@ logger.debug(f"Skipped event {idx}: {reason}")
 ### Layer Diagram
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                    Presentation Layer                    │
-│  ┌──────────────────┐       ┌──────────────────┐       │
-│  │   CLI Interface  │       │  FastAPI Server  │       │
-│  │   (main.py)      │       │   (main.py)      │       │
-│  └────────┬─────────┘       └─────────┬────────┘       │
-└───────────┼───────────────────────────┼─────────────────┘
-            │                           │
-            ▼                           ▼
-┌─────────────────────────────────────────────────────────┐
-│                   Business Logic Layer                   │
-│  ┌────────────────────────────────────────────────────┐ │
-│  │         HeartbeatMonitor (monitor.py)              │ │
-│  │  • Orchestration                                   │ │
-│  │  • Validation                                      │ │
-│  │  • Alert Detection                                 │ │
-│  └────────────────────────────────────────────────────┘ │
-└─────────────────────────────────────────────────────────┘
-            │
-            ▼
-┌─────────────────────────────────────────────────────────┐
-│                     Data Layer                           │
-│  ┌──────────────────┐       ┌──────────────────┐       │
-│  │  Pydantic Models │       │  Utility Functions│       │
-│  │   (models.py)    │       │    (utils.py)     │       │
-│  └──────────────────┘       └──────────────────┘       │
-└─────────────────────────────────────────────────────────┘
+
+                    Presentation Layer                    
+                
+     CLI Interface           FastAPI Server         
+     (main.py)                (main.py)             
+                
+
+                                       
+                                       
+
+                   Business Logic Layer                   
+   
+           HeartbeatMonitor (monitor.py)               
+     Orchestration                                    
+     Validation                                       
+     Alert Detection                                  
+   
+
+            
+            
+
+                     Data Layer                           
+                
+    Pydantic Models          Utility Functions       
+     (models.py)               (utils.py)            
+                
+
 ```
 
 ### Component Responsibilities
@@ -172,74 +172,74 @@ logger.debug(f"Skipped event {idx}: {reason}")
 ### End-to-End Flow Diagram
 
 ```
-┌──────────────┐
-│ Client Input │ (JSON file or API upload)
-└──────┬───────┘
-       │
-       ▼
-┌──────────────────────────────────────────────────────┐
-│ Step 1: Load & Parse JSON                           │
-│ • Read file or API payload                          │
-│ • Parse JSON to list of dicts                       │
-└──────┬───────────────────────────────────────────────┘
-       │
-       ▼
-┌──────────────────────────────────────────────────────┐
-│ Step 2: Validate Events (Pydantic)                  │
-│ • Try to create HeartbeatEvent for each dict        │
-│ • Catch ValidationError for malformed events        │
-│ • Categorize errors (missing field, invalid format) │
-│ • Track skipped reasons                             │
-│                                                      │
-│ Input:  List[dict]                                  │
-│ Output: Tuple[List[HeartbeatEvent], ValidationResult]│
-└──────┬───────────────────────────────────────────────┘
-       │
-       ▼
-┌──────────────────────────────────────────────────────┐
-│ Step 3: Group by Service                            │
-│ • Create dictionary: service_name -> [events]       │
-│ • Each service tracked independently                │
-│                                                      │
-│ Input:  List[HeartbeatEvent]                        │
-│ Output: Dict[str, List[HeartbeatEvent]]             │
-└──────┬───────────────────────────────────────────────┘
-       │
-       ▼
-┌──────────────────────────────────────────────────────┐
-│ Step 4: Sort Events Chronologically                 │
-│ • Sort by timestamp within each service             │
-│ • Handles unordered input automatically             │
-│                                                      │
-│ Complexity: O(n log n) per service                  │
-└──────┬───────────────────────────────────────────────┘
-       │
-       ▼
-┌──────────────────────────────────────────────────────┐
-│ Step 5: Detect Alerts (Per Service)                 │
-│ • Track last heartbeat time                         │
-│ • Count consecutive misses                          │
-│ • Trigger alert when threshold reached              │
-│ • Reset counter on successful heartbeat             │
-│                                                      │
-│ Input:  List[HeartbeatEvent] (sorted)               │
-│ Output: List[Alert]                                 │
-└──────┬───────────────────────────────────────────────┘
-       │
-       ▼
-┌──────────────────────────────────────────────────────┐
-│ Step 6: Aggregate Results                           │
-│ • Combine alerts from all services                  │
-│ • Include validation statistics                     │
-│ • Add processing metadata (duration, timestamp)     │
-│                                                      │
-│ Output: MonitorResult                               │
-└──────┬───────────────────────────────────────────────┘
-       │
-       ▼
-┌──────────────┐
-│ Client Output│ (JSON, console summary, or file)
-└──────────────┘
+
+ Client Input  (JSON file or API upload)
+
+       
+       
+
+ Step 1: Load & Parse JSON                           
+  Read file or API payload                          
+  Parse JSON to list of dicts                       
+
+       
+       
+
+ Step 2: Validate Events (Pydantic)                  
+  Try to create HeartbeatEvent for each dict        
+  Catch ValidationError for malformed events        
+  Categorize errors (missing field, invalid format) 
+  Track skipped reasons                             
+                                                      
+ Input:  List[dict]                                  
+ Output: Tuple[List[HeartbeatEvent], ValidationResult]
+
+       
+       
+
+ Step 3: Group by Service                            
+  Create dictionary: service_name -> [events]       
+  Each service tracked independently                
+                                                      
+ Input:  List[HeartbeatEvent]                        
+ Output: Dict[str, List[HeartbeatEvent]]             
+
+       
+       
+
+ Step 4: Sort Events Chronologically                 
+  Sort by timestamp within each service             
+  Handles unordered input automatically             
+                                                      
+ Complexity: O(n log n) per service                  
+
+       
+       
+
+ Step 5: Detect Alerts (Per Service)                 
+  Track last heartbeat time                         
+  Count consecutive misses                          
+  Trigger alert when threshold reached              
+  Reset counter on successful heartbeat             
+                                                      
+ Input:  List[HeartbeatEvent] (sorted)               
+ Output: List[Alert]                                 
+
+       
+       
+
+ Step 6: Aggregate Results                           
+  Combine alerts from all services                  
+  Include validation statistics                     
+  Add processing metadata (duration, timestamp)     
+                                                      
+ Output: MonitorResult                               
+
+       
+       
+
+ Client Output (JSON, console summary, or file)
+
 ```
 
 ---
@@ -315,13 +315,13 @@ Event #1 (10:00):
 Event #2 (10:01):
   expected = 10:01 (10:00 + 60s)
   current = 10:01
-  ✅ On time → Reset consecutive_misses = 0
+   On time  Reset consecutive_misses = 0
   last_heartbeat = 10:01
 
 Event #3 (10:02):
   expected = 10:02 (10:01 + 60s)
   current = 10:02
-  ✅ On time → Reset consecutive_misses = 0
+   On time  Reset consecutive_misses = 0
   last_heartbeat = 10:02
 
 Event #4 (10:06):
@@ -330,18 +330,18 @@ Event #4 (10:06):
   
   Loop iteration 1:
     expected = 10:03, current = 10:06
-    ❌ MISS → consecutive_misses = 1
+     MISS  consecutive_misses = 1
     expected = 10:04
   
   Loop iteration 2:
     expected = 10:04, current = 10:06
-    ❌ MISS → consecutive_misses = 2
+     MISS  consecutive_misses = 2
     expected = 10:05
   
   Loop iteration 3:
     expected = 10:05, current = 10:06
-    ❌ MISS → consecutive_misses = 3
-    🚨 ALERT TRIGGERED at 10:05
+     MISS  consecutive_misses = 3
+     ALERT TRIGGERED at 10:05
     Reset consecutive_misses = 0
     last_heartbeat = 10:05
     expected = 10:06
@@ -357,7 +357,7 @@ Output: [Alert(service="email", alert_at=10:05, missed_count=3)]
 
 - **Time Complexity**: O(n log n) per service
   - Sorting: O(n log n)
-  - Alert detection: O(n × m) where m = average gap size
+  - Alert detection: O(n  m) where m = average gap size
   - Overall: O(n log n) dominates
   
 - **Space Complexity**: O(n)
@@ -373,23 +373,23 @@ Output: [Alert(service="email", alert_at=10:05, missed_count=3)]
 The system is designed to scale horizontally:
 
 ```
-┌──────────────────────────────────────────────────────┐
-│                    Load Balancer                      │
-└───────┬──────────────┬──────────────┬────────────────┘
-        │              │              │
-        ▼              ▼              ▼
-   ┌────────┐     ┌────────┐     ┌────────┐
-   │Monitor │     │Monitor │     │Monitor │
-   │ Pod 1  │     │ Pod 2  │     │ Pod 3  │
-   └────────┘     └────────┘     └────────┘
-        │              │              │
-        └──────────────┴──────────────┘
-                       │
-                       ▼
-           ┌─────────────────────┐
-           │ Shared Storage      │
-           │ (Optional: S3)      │
-           └─────────────────────┘
+
+                    Load Balancer                      
+
+                                    
+                                    
+             
+   Monitor      Monitor      Monitor 
+    Pod 1        Pod 2        Pod 3  
+             
+                                    
+        
+                       
+                       
+           
+            Shared Storage      
+            (Optional: S3)      
+           
 ```
 
 **Key Design Decisions for Scalability:**
@@ -413,7 +413,7 @@ for service, service_events in services_map.items():
 
 **Benefit**: If you have 1000 events across 10 services:
 - Naive: O(1000 log 1000) = ~10,000 operations
-- Optimized: 10 × O(100 log 100) = ~6,600 operations
+- Optimized: 10  O(100 log 100) = ~6,600 operations
 
 #### **2. Early Validation Exit**
 
@@ -444,7 +444,7 @@ if not args.output:
 | Validation | O(n) | Low (Pydantic optimized) |
 | Grouping | O(n) | Low (dict lookup) |
 | Sorting | O(n log n) | **Medium** (CPU-bound) |
-| Alert Detection | O(n × m) | Medium (m typically small) |
+| Alert Detection | O(n  m) | Medium (m typically small) |
 
 **Mitigation**: For very large datasets (millions of events), consider:
 - Streaming processing (process in chunks)
@@ -514,11 +514,11 @@ async def global_exception_handler(request, exc):
 - Manual validation
 
 **Rationale**:
-- ✅ Automatic validation at runtime
-- ✅ JSON serialization built-in
-- ✅ Industry standard (FastAPI integration)
-- ✅ Type hints → runtime checks
-- ✅ Clear error messages
+-  Automatic validation at runtime
+-  JSON serialization built-in
+-  Industry standard (FastAPI integration)
+-  Type hints  runtime checks
+-  Clear error messages
 
 ### Why Group-Then-Sort?
 
@@ -529,9 +529,9 @@ async def global_exception_handler(request, exc):
 - Process events in arrival order
 
 **Rationale**:
-- ✅ Better performance: O(k log k) per service vs O(n log n) total
-- ✅ Independent service tracking (design principle)
-- ✅ Easier to parallelize (future enhancement)
+-  Better performance: O(k log k) per service vs O(n log n) total
+-  Independent service tracking (design principle)
+-  Easier to parallelize (future enhancement)
 
 ### Why Reset After Alert?
 
@@ -542,9 +542,9 @@ async def global_exception_handler(request, exc):
 - Stop monitoring after first alert
 
 **Rationale**:
-- ✅ Detect multiple outage periods
-- ✅ Clear semantics (each alert = one outage)
-- ✅ Production realistic (services fail multiple times)
+-  Detect multiple outage periods
+-  Clear semantics (each alert = one outage)
+-  Production realistic (services fail multiple times)
 
 ### Why Optional Services?
 
@@ -555,9 +555,9 @@ async def global_exception_handler(request, exc):
 - Hard-coded dependencies
 
 **Rationale**:
-- ✅ Lower barrier to entry (easy setup)
-- ✅ Flexible deployment (CLI or full API)
-- ✅ Graceful degradation pattern
+-  Lower barrier to entry (easy setup)
+-  Flexible deployment (CLI or full API)
+-  Graceful degradation pattern
 
 ---
 
@@ -573,7 +573,7 @@ async def global_exception_handler(request, exc):
 **Results**:
 ```
 Operation                  Time        Percentage
-─────────────────────────────────────────────────
+
 JSON Parsing               1.2ms       9.6%
 Validation                 2.3ms       18.4%
 Grouping                   0.5ms       4.0%
@@ -581,7 +581,7 @@ Sorting                    1.8ms       14.4%
 Alert Detection            3.7ms       29.6%
 Result Assembly            1.0ms       8.0%
 Logging/Output             2.0ms       16.0%
-─────────────────────────────────────────────────
+
 TOTAL                     12.5ms      100.0%
 ```
 

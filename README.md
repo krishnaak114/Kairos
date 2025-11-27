@@ -1,4 +1,4 @@
-# ⚡ Kairós - Service Heartbeat Monitor
+#  Kairs - Service Heartbeat Monitor
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
 ![Pydantic](https://img.shields.io/badge/Pydantic-2.10+-E92063?style=flat&logo=pydantic&logoColor=white)
@@ -8,27 +8,27 @@
 
 A **production-grade service monitoring system** that detects when services miss consecutive heartbeats and triggers alerts at the opportune moment. Built with comprehensive error handling, type safety, and industry-standard practices.
 
-> **Kairós** (καιρός) - Ancient Greek for "the right, critical, or opportune moment" - perfectly capturing what this system does: detecting issues at exactly the right time.
+> **Kairs** () - Ancient Greek for "the right, critical, or opportune moment" - perfectly capturing what this system does: detecting issues at exactly the right time.
 
 **Author**: [Krishna Agrawal](https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/) | [GitHub](https://github.com/krishnaak114)
 
 ---
 
-## ✨ Features
+##  Features
 
-- ✅ **Robust Validation**: Gracefully handles malformed data without crashing
-- ✅ **Type-Safe**: 100% type hints with Pydantic validation
-- ✅ **Unordered Input**: Automatically sorts events chronologically
-- ✅ **Multi-Service**: Independent tracking for each service
-- ✅ **Production-Ready**: Comprehensive logging, error handling, and observability
-- ✅ **Flexible Deployment**: CLI mode or optional FastAPI REST API
-- ✅ **Extensive Testing**: 100% test coverage with pytest
-- ✅ **Docker Support**: Containerized deployment with docker-compose
-- ✅ **Well-Documented**: Complete documentation with architecture diagrams
+-  **Robust Validation**: Gracefully handles malformed data without crashing
+-  **Type-Safe**: 100% type hints with Pydantic validation
+-  **Unordered Input**: Automatically sorts events chronologically
+-  **Multi-Service**: Independent tracking for each service
+-  **Production-Ready**: Comprehensive logging, error handling, and observability
+-  **Flexible Deployment**: CLI mode or optional FastAPI REST API
+-  **Extensive Testing**: 100% test coverage with pytest
+-  **Docker Support**: Containerized deployment with docker-compose
+-  **Well-Documented**: Complete documentation with architecture diagrams
 
 ---
 
-## 🎯 Use Case
+##  Use Case
 
 Monitor critical services (email, SMS, push notifications, databases, etc.) that send periodic heartbeats. Automatically detect and alert when services fail by missing consecutive heartbeat signals.
 
@@ -39,17 +39,17 @@ Expected interval: 60 seconds
 Allowed misses: 3
 
 Timeline:
-10:00 ✅ Heartbeat received
-10:01 ✅ Heartbeat received  
-10:02 ✅ Heartbeat received
-10:03 ❌ MISS (1)
-10:04 ❌ MISS (2)
-10:05 ❌ MISS (3) → 🚨 ALERT TRIGGERED!
+10:00  Heartbeat received
+10:01  Heartbeat received  
+10:02  Heartbeat received
+10:03  MISS (1)
+10:04  MISS (2)
+10:05  MISS (3)   ALERT TRIGGERED!
 ```
 
 ---
 
-## 📊 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -78,7 +78,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🚀 Running the Solution
+##  Running the Solution
 
 ### Basic Usage
 
@@ -99,7 +99,7 @@ Alerts Triggered: 1
 Processing Time:  12.5ms
 ==================================================
 
-🚨 Alerts Detected (1):
+ Alerts Detected (1):
 
   Alert #1:
     Service:      push
@@ -139,7 +139,7 @@ python app/main.py --file data/events.json --interval 30 --allowed-misses 2 --to
 
 ---
 
-## 🧪 Running Tests
+##  Running Tests
 
 ### Run All Tests
 
@@ -183,7 +183,7 @@ tests/test_monitor.py::TestRealWorldData::test_provided_dataset PASSED        [ 
 
 ---
 
-## 🐳 Docker Deployment
+##  Docker Deployment
 
 ### Build and Run with Docker
 
@@ -213,7 +213,7 @@ docker-compose down
 
 ---
 
-## 🌐 API Mode (Production Deployment)
+##  API Mode (Production Deployment)
 
 Run as a REST API service for production environments:
 
@@ -239,72 +239,72 @@ See [docs/API.md](docs/API.md) for complete API documentation.
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 heartbeat-monitor/
-├── app/
-│   ├── __init__.py          # Package initialization
-│   ├── main.py              # CLI entry point and optional API
-│   ├── models.py            # Pydantic data models (type-safe)
-│   ├── monitor.py           # Core monitoring logic
-│   └── utils.py             # Helper functions
-├── tests/
-│   ├── __init__.py
-│   └── test_monitor.py      # Comprehensive test suite (100% coverage)
-├── data/
-│   └── events.json          # Sample heartbeat events
-├── docs/
-│   ├── ARCHITECTURE.md      # Detailed architecture documentation
-│   └── API.md               # API mode documentation
-├── Dockerfile               # Production-ready container
-├── docker-compose.yml       # Multi-service orchestration
-├── requirements.txt         # Python dependencies
-├── .gitignore               # Git ignore rules
-├── LICENSE                  # MIT License
-└── README.md                # This file
+ app/
+    __init__.py          # Package initialization
+    main.py              # CLI entry point and optional API
+    models.py            # Pydantic data models (type-safe)
+    monitor.py           # Core monitoring logic
+    utils.py             # Helper functions
+ tests/
+    __init__.py
+    test_monitor.py      # Comprehensive test suite (100% coverage)
+ data/
+    events.json          # Sample heartbeat events
+ docs/
+    ARCHITECTURE.md      # Detailed architecture documentation
+    API.md               # API mode documentation
+ Dockerfile               # Production-ready container
+ docker-compose.yml       # Multi-service orchestration
+ requirements.txt         # Python dependencies
+ .gitignore               # Git ignore rules
+ LICENSE                  # MIT License
+ README.md                # This file
 ```
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ### High-Level System Flow
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  1. Load JSON events from file or API upload                │
-└───────────────────────┬─────────────────────────────────────┘
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│  2. Validate events with Pydantic                           │
-│     • Skip malformed events gracefully                      │
-│     • Track validation errors and reasons                   │
-└───────────────────────┬─────────────────────────────────────┘
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│  3. Group events by service                                 │
-│     • email, sms, push, database, etc.                      │
-└───────────────────────┬─────────────────────────────────────┘
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│  4. Sort events chronologically per service                 │
-│     • Handles unordered input automatically                 │
-└───────────────────────┬─────────────────────────────────────┘
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│  5. Track expected heartbeat times                          │
-│     • Count consecutive misses                              │
-│     • Trigger alert when threshold reached                  │
-│     • Reset counter on successful heartbeat                 │
-└───────────────────────┬─────────────────────────────────────┘
-                        ▼
-┌─────────────────────────────────────────────────────────────┐
-│  6. Return alerts with comprehensive metadata               │
-│     • Service name, alert timestamp                         │
-│     • Missed count, last seen timestamp                     │
-│     • Validation statistics                                 │
-└─────────────────────────────────────────────────────────────┘
+
+  1. Load JSON events from file or API upload                
+
+                        
+
+  2. Validate events with Pydantic                           
+      Skip malformed events gracefully                      
+      Track validation errors and reasons                   
+
+                        
+
+  3. Group events by service                                 
+      email, sms, push, database, etc.                      
+
+                        
+
+  4. Sort events chronologically per service                 
+      Handles unordered input automatically                 
+
+                        
+
+  5. Track expected heartbeat times                          
+      Count consecutive misses                              
+      Trigger alert when threshold reached                  
+      Reset counter on successful heartbeat                 
+
+                        
+
+  6. Return alerts with comprehensive metadata               
+      Service name, alert timestamp                         
+      Missed count, last seen timestamp                     
+      Validation statistics                                 
+
 ```
 
 ### Alert Detection Algorithm
@@ -337,7 +337,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed technical document
 
 ---
 
-## 🔧 Configuration Options
+##  Configuration Options
 
 ### Command-Line Arguments
 
@@ -378,7 +378,7 @@ python app/main.py --api --port 8000 --log-level WARNING --log-file monitor.log
 
 ---
 
-## 📊 Output Formats
+##  Output Formats
 
 ### 1. Console Summary (Default)
 
@@ -417,16 +417,16 @@ Complete monitoring result with validation statistics:
 
 ---
 
-## 🧪 Test Coverage
+##  Test Coverage
 
-### ✅ Assignment Requirements
+###  Assignment Requirements
 
-1. **Working alert case** - Service misses 3 consecutive heartbeats ✅
-2. **Near-miss case** - Only 2 misses, no alert triggered ✅
-3. **Unordered input** - Events arrive out of chronological order ✅
-4. **Malformed events** - Missing fields, invalid timestamps ✅
+1. **Working alert case** - Service misses 3 consecutive heartbeats 
+2. **Near-miss case** - Only 2 misses, no alert triggered 
+3. **Unordered input** - Events arrive out of chronological order 
+4. **Malformed events** - Missing fields, invalid timestamps 
 
-### 🎯 Additional Test Cases
+###  Additional Test Cases
 
 - Multiple services with independent tracking
 - Empty input handling
@@ -458,25 +458,25 @@ TOTAL               417     10    98%
 
 ---
 
-## 🎯 Edge Cases Handled
+##  Edge Cases Handled
 
 | Scenario | Handling | Test Coverage |
 |----------|----------|---------------|
-| Missing `service` field | Skip event, log error | ✅ |
-| Missing `timestamp` field | Skip event, log error | ✅ |
-| Invalid timestamp format | Skip event, log error | ✅ |
-| Empty service name | Skip event, log error | ✅ |
-| Null values | Skip event, log error | ✅ |
-| Unordered events | Auto-sort chronologically | ✅ |
-| Empty input | Return empty results | ✅ |
-| Single event | No alert (expected) | ✅ |
-| Multiple services | Independent tracking | ✅ |
-| Service recovery | Reset miss counter | ✅ |
-| Late heartbeats | Configurable tolerance | ✅ |
+| Missing `service` field | Skip event, log error |  |
+| Missing `timestamp` field | Skip event, log error |  |
+| Invalid timestamp format | Skip event, log error |  |
+| Empty service name | Skip event, log error |  |
+| Null values | Skip event, log error |  |
+| Unordered events | Auto-sort chronologically |  |
+| Empty input | Return empty results |  |
+| Single event | No alert (expected) |  |
+| Multiple services | Independent tracking |  |
+| Service recovery | Reset miss counter |  |
+| Late heartbeats | Configurable tolerance |  |
 
 ---
 
-## 🔬 Production Features
+##  Production Features
 
 ### Type Safety
 - 100% type hints throughout codebase
@@ -508,7 +508,7 @@ TOTAL               417     10    98%
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 - **[README.md](README.md)** - This file (getting started, usage)
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** - Technical architecture and design decisions
@@ -516,7 +516,7 @@ TOTAL               417     10    98%
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
@@ -529,7 +529,7 @@ TOTAL               417     10    98%
 
 ---
 
-## 🚀 Future Enhancements
+##  Future Enhancements
 
 - [ ] **Database Integration**: PostgreSQL for alert history persistence
 - [ ] **Redis Caching**: Cache recent events for faster processing
@@ -543,7 +543,7 @@ TOTAL               417     10    98%
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This is a portfolio project, but suggestions and feedback are welcome!
 
@@ -555,13 +555,13 @@ This is a portfolio project, but suggestions and feedback are welcome!
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👤 Author
+##  Author
 
 **Krishna Agrawal**
 
@@ -571,7 +571,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - Built following production best practices from industry-standard microservices architecture
 - Inspired by real-world monitoring systems (Prometheus, Datadog, New Relic)
@@ -579,7 +579,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📈 Project Stats
+##  Project Stats
 
 ![Lines of Code](https://img.shields.io/badge/Lines%20of%20Code-1200+-blue)
 ![Test Coverage](https://img.shields.io/badge/Test%20Coverage-98%25-brightgreen)
@@ -588,6 +588,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**⭐ If you find this project useful, please consider giving it a star on GitHub!**
+** If you find this project useful, please consider giving it a star on GitHub!**
 
-**Made with ❤️ by Krishna Agrawal • Production-Grade • Type-Safe • Well-Tested**
+**Made with  by Krishna Agrawal  Production-Grade  Type-Safe  Well-Tested**

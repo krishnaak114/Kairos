@@ -1,8 +1,8 @@
-# 🎉 Project Summary: Kair�s
+#  Project Summary: Kairs
 
 ## Overview
 
-A **production-grade Kair�sing system** built as a portfolio project, demonstrating enterprise-level software engineering practices, comprehensive testing, and deployment readiness.
+A **production-grade Kairsing system** built as a portfolio project, demonstrating enterprise-level software engineering practices, comprehensive testing, and deployment readiness.
 
 **Author**: Krishna Agrawal  
 **Contact**: kagrawalk510@gmail.com  
@@ -11,7 +11,7 @@ A **production-grade Kair�sing system** built as a portfolio project, demonstr
 
 ---
 
-## 📊 Project Statistics
+##  Project Statistics
 
 ### Code Metrics
 - **Total Lines of Code**: ~2,500+
@@ -25,136 +25,136 @@ A **production-grade Kair�sing system** built as a portfolio project, demonstr
 ### File Structure
 ```
 kairos/
-├── app/                    # Application source code
-│   ├── __init__.py        # Package initialization
-│   ├── config.py          # Configuration management (156 lines)
-│   ├── main.py            # Entry point & CLI (102 lines)
-│   ├── models.py          # Pydantic data models (44 lines)
-│   ├── monitor.py         # Core monitoring logic (101 lines)
-│   └── utils.py           # Utility functions (59 lines)
-├── tests/                  # Test suite
-│   ├── __init__.py        # Test package init
-│   └── test_monitor.py    # Comprehensive tests (363 lines)
-├── data/                   # Sample data
-│   └── events.json        # Test heartbeat events (29 events)
-├── docs/                   # Documentation
-│   ├── ARCHITECTURE.md    # System architecture (600+ lines)
-│   └── API.md             # API documentation (400+ lines)
-├── .github/workflows/      # CI/CD pipelines
-│   ├── ci.yml             # Continuous integration
-│   └── docker-publish.yml # Docker publishing
-├── README.md              # Main documentation (500+ lines)
-├── CONTRIBUTING.md        # Contribution guidelines (400+ lines)
-├── CHANGELOG.md           # Version history (200+ lines)
-├── LICENSE                # MIT License
-├── Dockerfile             # Container definition
-├── docker-compose.yml     # Multi-service orchestration
-├── requirements.txt       # Python dependencies
-├── pytest.ini             # Test configuration
-├── .env.example           # Environment template
-├── .gitignore            # Git ignore rules
-├── setup.sh              # Linux/Mac setup script
-└── setup.bat             # Windows setup script
+ app/                    # Application source code
+    __init__.py        # Package initialization
+    config.py          # Configuration management (156 lines)
+    main.py            # Entry point & CLI (102 lines)
+    models.py          # Pydantic data models (44 lines)
+    monitor.py         # Core monitoring logic (101 lines)
+    utils.py           # Utility functions (59 lines)
+ tests/                  # Test suite
+    __init__.py        # Test package init
+    test_monitor.py    # Comprehensive tests (363 lines)
+ data/                   # Sample data
+    events.json        # Test heartbeat events (29 events)
+ docs/                   # Documentation
+    ARCHITECTURE.md    # System architecture (600+ lines)
+    API.md             # API documentation (400+ lines)
+ .github/workflows/      # CI/CD pipelines
+    ci.yml             # Continuous integration
+    docker-publish.yml # Docker publishing
+ README.md              # Main documentation (500+ lines)
+ CONTRIBUTING.md        # Contribution guidelines (400+ lines)
+ CHANGELOG.md           # Version history (200+ lines)
+ LICENSE                # MIT License
+ Dockerfile             # Container definition
+ docker-compose.yml     # Multi-service orchestration
+ requirements.txt       # Python dependencies
+ pytest.ini             # Test configuration
+ .env.example           # Environment template
+ .gitignore            # Git ignore rules
+ setup.sh              # Linux/Mac setup script
+ setup.bat             # Windows setup script
 ```
 
 ---
 
-## ✨ Features Implemented
+##  Features Implemented
 
 ### Core Features
-✅ Kair�sing with configurable thresholds  
-✅ Multi-service tracking (independent monitoring)  
-✅ Automatic sorting of unordered events  
-✅ Graceful handling of malformed data  
-✅ Detailed validation error reporting  
-✅ Consecutive miss detection algorithm  
-✅ Tolerance window for late heartbeats  
-✅ Multiple alert period detection  
-✅ Service name normalization (case-insensitive)  
+ Kairsing with configurable thresholds  
+ Multi-service tracking (independent monitoring)  
+ Automatic sorting of unordered events  
+ Graceful handling of malformed data  
+ Detailed validation error reporting  
+ Consecutive miss detection algorithm  
+ Tolerance window for late heartbeats  
+ Multiple alert period detection  
+ Service name normalization (case-insensitive)  
 
 ### CLI Features
-✅ Command-line interface with argparse  
-✅ JSON file input  
-✅ Configurable parameters (interval, allowed misses, tolerance)  
-✅ JSON output for automation  
-✅ Quiet mode for scripts  
-✅ Alert file export  
-✅ Structured logging with levels  
-✅ Color-coded console output  
-✅ Comprehensive help documentation  
+ Command-line interface with argparse  
+ JSON file input  
+ Configurable parameters (interval, allowed misses, tolerance)  
+ JSON output for automation  
+ Quiet mode for scripts  
+ Alert file export  
+ Structured logging with levels  
+ Color-coded console output  
+ Comprehensive help documentation  
 
 ### API Features (Optional Production Mode)
-✅ FastAPI REST API server  
-✅ File upload endpoint (multipart/form-data)  
-✅ Health check endpoint  
-✅ Interactive API documentation (Swagger UI)  
-✅ ReDoc documentation  
-✅ CORS configuration  
-✅ API key authentication  
-✅ Error handling middleware  
-✅ Request validation  
-✅ JSON response formatting  
+ FastAPI REST API server  
+ File upload endpoint (multipart/form-data)  
+ Health check endpoint  
+ Interactive API documentation (Swagger UI)  
+ ReDoc documentation  
+ CORS configuration  
+ API key authentication  
+ Error handling middleware  
+ Request validation  
+ JSON response formatting  
 
 ### Data Models
-✅ Pydantic-based validation  
-✅ Type safety with runtime checks  
-✅ Custom field validators  
-✅ Comprehensive error messages  
-✅ JSON serialization  
-✅ ISO 8601 timestamp support  
-✅ Service name pattern matching  
+ Pydantic-based validation  
+ Type safety with runtime checks  
+ Custom field validators  
+ Comprehensive error messages  
+ JSON serialization  
+ ISO 8601 timestamp support  
+ Service name pattern matching  
 
 ### Configuration
-✅ Pydantic Settings with environment variables  
-✅ .env file support  
-✅ Optional service pattern (database, Redis)  
-✅ Graceful degradation  
-✅ Multiple environment configurations (dev, prod, test)  
-✅ Configuration validation  
-✅ Security warnings for production  
+ Pydantic Settings with environment variables  
+ .env file support  
+ Optional service pattern (database, Redis)  
+ Graceful degradation  
+ Multiple environment configurations (dev, prod, test)  
+ Configuration validation  
+ Security warnings for production  
 
 ### DevOps & Deployment
-✅ Docker containerization  
-✅ Multi-stage Docker builds  
-✅ Docker Compose orchestration  
-✅ Health checks in containers  
-✅ Volume mounting for persistence  
-✅ Environment variable configuration  
-✅ CI/CD pipelines (GitHub Actions)  
-✅ Automated testing across Python 3.11-3.13  
-✅ Multi-OS testing (Ubuntu, Windows, macOS)  
-✅ Docker image publishing workflow  
-✅ Security scanning (Bandit, Trivy)  
-✅ Code quality checks (Black, Flake8, mypy)  
-✅ Coverage reporting  
+ Docker containerization  
+ Multi-stage Docker builds  
+ Docker Compose orchestration  
+ Health checks in containers  
+ Volume mounting for persistence  
+ Environment variable configuration  
+ CI/CD pipelines (GitHub Actions)  
+ Automated testing across Python 3.11-3.13  
+ Multi-OS testing (Ubuntu, Windows, macOS)  
+ Docker image publishing workflow  
+ Security scanning (Bandit, Trivy)  
+ Code quality checks (Black, Flake8, mypy)  
+ Coverage reporting  
 
 ### Documentation
-✅ Comprehensive README with badges  
-✅ Architecture documentation with diagrams  
-✅ API reference with examples  
-✅ Contributing guidelines  
-✅ Changelog following Keep a Changelog  
-✅ OpenAPI/Swagger specification  
-✅ Docker deployment guide  
-✅ Kubernetes manifests (examples)  
-✅ Environment configuration reference  
-✅ Setup scripts with instructions  
+ Comprehensive README with badges  
+ Architecture documentation with diagrams  
+ API reference with examples  
+ Contributing guidelines  
+ Changelog following Keep a Changelog  
+ OpenAPI/Swagger specification  
+ Docker deployment guide  
+ Kubernetes manifests (examples)  
+ Environment configuration reference  
+ Setup scripts with instructions  
 
 ### Testing
-✅ 15 comprehensive test cases  
-✅ Required assignment test cases  
-✅ Edge case coverage  
-✅ Multi-service scenarios  
-✅ Configuration variations  
-✅ Real-world data validation  
-✅ pytest-based test framework  
-✅ Test fixtures and parametrization  
-✅ Coverage reporting (89% core logic)  
-✅ CI/CD test automation  
+ 15 comprehensive test cases  
+ Required assignment test cases  
+ Edge case coverage  
+ Multi-service scenarios  
+ Configuration variations  
+ Real-world data validation  
+ pytest-based test framework  
+ Test fixtures and parametrization  
+ Coverage reporting (89% core logic)  
+ CI/CD test automation  
 
 ---
 
-## 🏆 Technical Highlights
+##  Technical Highlights
 
 ### Software Engineering Best Practices
 - **Type Safety**: 100% type hints with Pydantic runtime validation
@@ -192,7 +192,7 @@ kairos/
 
 ---
 
-## 📈 Performance Benchmarks
+##  Performance Benchmarks
 
 ### Processing Speed
 - **Small files** (<100 events): ~2ms processing time
@@ -208,7 +208,7 @@ kairos/
 
 ---
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 ### Core Technologies
 - **Python 3.11-3.13**: Modern Python with latest features
@@ -232,45 +232,45 @@ kairos/
 
 ---
 
-## 🎯 Assignment Requirements Met
+##  Assignment Requirements Met
 
 ### Required Test Cases
-✅ **Test Case 1**: Alert triggered after 3 consecutive misses  
-✅ **Test Case 2**: Near-miss (2 misses, no alert)  
-✅ **Test Case 3**: Unordered input handling  
-✅ **Test Case 4**: Malformed event handling  
+ **Test Case 1**: Alert triggered after 3 consecutive misses  
+ **Test Case 2**: Near-miss (2 misses, no alert)  
+ **Test Case 3**: Unordered input handling  
+ **Test Case 4**: Malformed event handling  
 
 ### Additional Test Cases (11 more)
-✅ Multiple services with independent tracking  
-✅ Empty input handling  
-✅ Single event handling  
-✅ Exact threshold detection  
-✅ Recovery after alert  
-✅ Multiple alert periods  
-✅ Different interval configurations  
-✅ Case-insensitive service names  
-✅ Real-world dataset validation  
-✅ Different allowed misses configurations  
-✅ Tolerance window testing  
+ Multiple services with independent tracking  
+ Empty input handling  
+ Single event handling  
+ Exact threshold detection  
+ Recovery after alert  
+ Multiple alert periods  
+ Different interval configurations  
+ Case-insensitive service names  
+ Real-world dataset validation  
+ Different allowed misses configurations  
+ Tolerance window testing  
 
 ### Core Requirements
-✅ Process JSON heartbeat events  
-✅ Detect 3 consecutive misses  
-✅ Handle malformed data gracefully  
-✅ Return alerts in specified format  
-✅ Support configurable parameters  
+ Process JSON heartbeat events  
+ Detect 3 consecutive misses  
+ Handle malformed data gracefully  
+ Return alerts in specified format  
+ Support configurable parameters  
 
 ### Bonus Features
-✅ Production-ready API mode  
-✅ Docker deployment  
-✅ Comprehensive documentation  
-✅ CI/CD pipelines  
-✅ Multi-platform support  
-✅ Extensive test coverage  
+ Production-ready API mode  
+ Docker deployment  
+ Comprehensive documentation  
+ CI/CD pipelines  
+ Multi-platform support  
+ Extensive test coverage  
 
 ---
 
-## 🌟 What Makes This Stand Out
+##  What Makes This Stand Out
 
 ### 1. Production-Grade Quality
 Not just an assignment solution, but a **production-ready system** that could be deployed to handle real monitoring workloads.
@@ -298,7 +298,7 @@ Complete **CI/CD pipelines**, Docker containerization, multi-stage builds, healt
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ```bash
 # Clone repository
@@ -325,7 +325,7 @@ docker-compose up -d
 
 ---
 
-## 📝 Assignment Solution Output
+##  Assignment Solution Output
 
 ### CLI Output
 ```bash
@@ -359,7 +359,7 @@ tests/test_monitor.py::TestRequiredCases::test_malformed_events PASSED          
 
 ---
 
-## 🎓 Learning Outcomes
+##  Learning Outcomes
 
 This project demonstrates proficiency in:
 
@@ -376,7 +376,7 @@ This project demonstrates proficiency in:
 
 ---
 
-## 🔮 Future Enhancements
+##  Future Enhancements
 
 ### Planned Features
 - [ ] Database persistence for alert history
@@ -392,17 +392,17 @@ This project demonstrates proficiency in:
 
 ---
 
-## 📞 Contact
+##  Contact
 
 **Krishna Agrawal**
 
-- 📧 Email: kagrawalk510@gmail.com
-- 💼 LinkedIn: https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/
-- 🐙 GitHub: https://github.com/krishnaak114
+-  Email: kagrawalk510@gmail.com
+-  LinkedIn: https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/
+-  GitHub: https://github.com/krishnaak114
 
 ---
 
-## 📄 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
@@ -410,8 +410,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Project Completed**: November 27, 2025  
 **Version**: 1.0.0  
-**Status**: ✅ Production Ready
+**Status**:  Production Ready
 
 ---
 
-*Built with ❤️ as a production-grade portfolio project showcasing enterprise software engineering practices.*
+*Built with  as a production-grade portfolio project showcasing enterprise software engineering practices.*

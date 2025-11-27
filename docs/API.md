@@ -1,4 +1,4 @@
-# 📡 API Documentation
+#  API Documentation
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@
 
 ## Overview
 
-The Kair�s API provides a RESTful interface for processing heartbeat events and detecting service outages. This is an optional production feature that extends the CLI functionality.
+The Kairs API provides a RESTful interface for processing heartbeat events and detecting service outages. This is an optional production feature that extends the CLI functionality.
 
 **Base URL**: `http://localhost:8000` (default)
 
@@ -90,7 +90,7 @@ Returns API information and available endpoints.
 **Response**:
 ```json
 {
-  "name": "Kair�s API",
+  "name": "Kairs API",
   "version": "1.0.0",
   "endpoints": {
     "health": "/health",
@@ -556,10 +556,10 @@ export CORS_ORIGINS=https://yourdomain.com,https://www.yourdomain.com
 
 ## Support
 
-- 📧 Email: kagrawalk510@gmail.com
-- 💼 LinkedIn: [Krishna Agrawal](https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/)
-- 🐙 GitHub: [@krishnaak114](https://github.com/krishnaak114)
-- 📚 Documentation: [Full Docs](../README.md)
+-  Email: kagrawalk510@gmail.com
+-  LinkedIn: [Krishna Agrawal](https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/)
+-  GitHub: [@krishnaak114](https://github.com/krishnaak114)
+-  Documentation: [Full Docs](../README.md)
 
 ---
 

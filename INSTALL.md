@@ -1,4 +1,4 @@
-﻿# Installation Guide - Kairos
+# Installation Guide - Kairos
 
 ## Quick Start (Recommended)
 
@@ -55,7 +55,7 @@ python -m app.main --file data/events.json --interval 60 --allowed-misses 3
 
 **Problem**: You see an error about Rust/Cargo not being installed when installing pydantic.
 
-**Note**: This issue is resolved in Kairós v1.0.1+ which uses Pydantic 2.10+ with pre-built wheels for all platforms.
+**Note**: This issue is resolved in Kairs v1.0.1+ which uses Pydantic 2.10+ with pre-built wheels for all platforms.
 
 **Solution 1** (Recommended): Update to latest Pydantic:
 ```bash
@@ -78,7 +78,7 @@ python -m app.main --file data/events.json
 
 ### Issue: Character encoding errors in batch files
 
-**Problem**: You see garbled characters like âà instead of [OK]
+**Problem**: You see garbled characters like  instead of [OK]
 
 **Solution**: The batch files now use ASCII encoding. Run them using:
 ```bat

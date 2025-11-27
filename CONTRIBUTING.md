@@ -1,6 +1,6 @@
-# 🌟 Contributing to Kair�s
+#  Contributing to Kairs
 
-First off, thank you for considering contributing to Kair�s! It's people like you that make this project a great tool for the community.
+First off, thank you for considering contributing to Kairs! It's people like you that make this project a great tool for the community.
 
 ## Table of Contents
 
@@ -193,12 +193,12 @@ class HeartbeatMonitor:
 **Always use type hints** for function signatures:
 
 ```python
-# ✅ Good
+#  Good
 def detect_alerts(self, events: List[HeartbeatEvent]) -> List[Alert]:
     """Detect alerts from events."""
     pass
 
-# ❌ Bad
+#  Bad
 def detect_alerts(self, events):
     pass
 ```
@@ -231,7 +231,7 @@ def validate_events(self, raw_events: List[dict]) -> Tuple[List[HeartbeatEvent],
 ### Error Handling
 
 ```python
-# ✅ Good - Specific exception handling
+#  Good - Specific exception handling
 try:
     event = HeartbeatEvent(**raw_event)
 except ValidationError as e:
@@ -241,7 +241,7 @@ except Exception as e:
     logger.error(f"Unexpected error: {e}", exc_info=True)
     raise
 
-# ❌ Bad - Bare except
+#  Bad - Bare except
 try:
     event = HeartbeatEvent(**raw_event)
 except:
@@ -324,13 +324,13 @@ def sample_events():
 
 ### Before Submitting
 
-1. ✅ Run all tests: `pytest tests/ -v`
-2. ✅ Check code style: `black app/ tests/ --check`
-3. ✅ Run linting: `flake8 app/ tests/`
-4. ✅ Type check: `mypy app/`
-5. ✅ Update documentation
-6. ✅ Add tests for new features
-7. ✅ Update CHANGELOG.md
+1.  Run all tests: `pytest tests/ -v`
+2.  Check code style: `black app/ tests/ --check`
+3.  Run linting: `flake8 app/ tests/`
+4.  Type check: `mypy app/`
+5.  Update documentation
+6.  Add tests for new features
+7.  Update CHANGELOG.md
 
 ### PR Template
 
@@ -440,11 +440,11 @@ Examples, mockups, etc.
 ### Documentation Standards
 
 ```python
-# ✅ Good comment - explains WHY
+#  Good comment - explains WHY
 # Reset counter after alert to detect subsequent outage periods
 consecutive_misses = 0
 
-# ❌ Bad comment - explains WHAT (obvious from code)
+#  Bad comment - explains WHAT (obvious from code)
 # Set consecutive_misses to 0
 consecutive_misses = 0
 ```
@@ -487,13 +487,13 @@ python -m cProfile -o profile.stats app/main.py
 
 ## Questions?
 
-- 📧 Email: kagrawalk510@gmail.com
-- 💼 LinkedIn: [Krishna Agrawal](https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/)
-- 🐙 GitHub: [@krishnaak114](https://github.com/krishnaak114)
+-  Email: kagrawalk510@gmail.com
+-  LinkedIn: [Krishna Agrawal](https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/)
+-  GitHub: [@krishnaak114](https://github.com/krishnaak114)
 
 ---
 
-Thank you for contributing! 🎉
+Thank you for contributing! 
 
 **Author**: Krishna Agrawal  
 **Version**: 1.0.0  
