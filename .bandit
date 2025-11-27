@@ -1,0 +1,8 @@
+﻿# Bandit security configuration for Kairós
+[bandit]
+exclude_dirs = /tests,/venv,/build,/dist
+
+# Suppress B104: hardcoded_bind_all_interfaces
+# Rationale: 0.0.0.0 binding is intentional for containerized deployments
+# Security is handled via environment variables and API keys
+skips = B104
