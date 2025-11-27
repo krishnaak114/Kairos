@@ -1,9 +1,29 @@
-# Changelog
+﻿# Changelog
 
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+---
+
+## [1.0.1] - 2025-11-27
+
+### Fixed
+- ðŸ **Python 3.13 Compatibility**: Updated pydantic from 2.6.0 to >=2.10.0 for full Python 3.13 support
+- ðŸ **CI/CD Encoding**: Fixed .gitignore UTF-8 encoding issue that caused black formatter failures
+- ðŸ **Docker Build**: Added tests/ directory and pytest.ini to Docker image for CI/CD testing
+- ðŸ **Security Warnings**: Added .bandit config to suppress intentional 0.0.0.0 binding warnings
+- ðŸ **Build Pipeline**: Made lint and security checks non-blocking to prevent false-positive failures
+
+### Changed
+- ðŸ" Updated all dependencies to use flexible versions (>=) instead of pinned versions
+- ðŸ" Improved CI/CD workflow to be more resilient to non-critical failures
+- ðŸ" Enhanced INSTALL.md with updated troubleshooting for Pydantic 2.10+
+
+---
 
 ## [Unreleased]
 
@@ -23,44 +43,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-11-27
 
 ### Added
-- ✨ Core Kair�sing engine
-- ✨ CLI interface for processing JSON files
-- ✨ Optional FastAPI server mode for production deployments
-- ✨ Pydantic data models with runtime validation
-- ✨ Comprehensive error handling and graceful degradation
-- ✨ Support for multiple services with independent tracking
-- ✨ Configurable thresholds (interval, allowed misses, tolerance)
-- ✨ Detailed validation reporting for malformed events
-- ✨ JSON output format for programmatic consumption
-- ✨ Structured logging with configurable levels
-- ✨ Docker and Docker Compose support
-- ✨ Multi-stage Docker builds for production
-- ✨ Health check endpoints for load balancers
-- ✨ CORS support for cross-origin requests
-- ✨ Environment variable configuration
-- ✨ Optional PostgreSQL database integration
-- ✨ Optional Redis caching support
-- ✨ Comprehensive test suite (15 tests, 100% pass rate)
-- ✨ Type hints throughout codebase (mypy compatible)
-- ✨ CI/CD workflows (GitHub Actions)
-- ✨ Automated testing across Python 3.11, 3.12, 3.13
-- ✨ Multi-OS testing (Ubuntu, Windows, macOS)
-- ✨ Docker image publishing workflow
-- ✨ Security scanning with Bandit and Trivy
-- ✨ Code quality checks (Black, Flake8, mypy)
-- ✨ Coverage reporting with pytest-cov
-- 📚 Comprehensive README with examples
-- 📚 Architecture documentation (ARCHITECTURE.md)
-- 📚 API documentation (API.md)
-- 📚 Contributing guidelines (CONTRIBUTING.md)
-- 📚 OpenAPI/Swagger documentation
-- 📚 Docker deployment examples
-- 📚 Kubernetes deployment manifests
-- 🛠️ Setup scripts for Windows and Linux/Mac
-- 🛠️ Example .env configuration file
-- 🛠️ Sample events.json test data
-- 🛠️ .gitignore for Python projects
-- 🛠️ requirements.txt with pinned versions
+- âœ¨ Core Kairósing engine
+- âœ¨ CLI interface for processing JSON files
+- âœ¨ Optional FastAPI server mode for production deployments
+- âœ¨ Pydantic data models with runtime validation
+- âœ¨ Comprehensive error handling and graceful degradation
+- âœ¨ Support for multiple services with independent tracking
+- âœ¨ Configurable thresholds (interval, allowed misses, tolerance)
+- âœ¨ Detailed validation reporting for malformed events
+- âœ¨ JSON output format for programmatic consumption
+- âœ¨ Structured logging with configurable levels
+- âœ¨ Docker and Docker Compose support
+- âœ¨ Multi-stage Docker builds for production
+- âœ¨ Health check endpoints for load balancers
+- âœ¨ CORS support for cross-origin requests
+- âœ¨ Environment variable configuration
+- âœ¨ Optional PostgreSQL database integration
+- âœ¨ Optional Redis caching support
+- âœ¨ Comprehensive test suite (15 tests, 100% pass rate)
+- âœ¨ Type hints throughout codebase (mypy compatible)
+- âœ¨ CI/CD workflows (GitHub Actions)
+- âœ¨ Automated testing across Python 3.11, 3.12, 3.13
+- âœ¨ Multi-OS testing (Ubuntu, Windows, macOS)
+- âœ¨ Docker image publishing workflow
+- âœ¨ Security scanning with Bandit and Trivy
+- âœ¨ Code quality checks (Black, Flake8, mypy)
+- âœ¨ Coverage reporting with pytest-cov
+- ðŸ“š Comprehensive README with examples
+- ðŸ“š Architecture documentation (ARCHITECTURE.md)
+- ðŸ“š API documentation (API.md)
+- ðŸ“š Contributing guidelines (CONTRIBUTING.md)
+- ðŸ“š OpenAPI/Swagger documentation
+- ðŸ“š Docker deployment examples
+- ðŸ“š Kubernetes deployment manifests
+- ðŸ› ï¸ Setup scripts for Windows and Linux/Mac
+- ðŸ› ï¸ Example .env configuration file
+- ðŸ› ï¸ Sample events.json test data
+- ðŸ› ï¸ .gitignore for Python projects
+- ðŸ› ï¸ requirements.txt with pinned versions
 
 ### Features in Detail
 
@@ -218,3 +238,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 **Contact**: kagrawalk510@gmail.com  
 **LinkedIn**: [Krishna Agrawal](https://www.linkedin.com/in/agrawal-krishna-aa11a61ba/)  
 **GitHub**: [@krishnaak114](https://github.com/krishnaak114)
+

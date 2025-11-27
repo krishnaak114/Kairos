@@ -1,7 +1,7 @@
 # ⚡ Kairós - Service Heartbeat Monitor
 
 ![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)
-![Pydantic](https://img.shields.io/badge/Pydantic-2.6-E92063?style=flat&logo=pydantic&logoColor=white)
+![Pydantic](https://img.shields.io/badge/Pydantic-2.10+-E92063?style=flat&logo=pydantic&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.110-009688?style=flat&logo=fastapi&logoColor=white)
 ![Tests](https://img.shields.io/badge/Tests-Passing-brightgreen?style=flat)
 ![License](https://img.shields.io/badge/License-MIT-blue?style=flat)
@@ -53,7 +53,7 @@ Timeline:
 
 ### Prerequisites
 
-- Python 3.11+ (or 3.9+)
+- Python 3.11-3.13 (fully tested)
 - pip (Python package manager)
 
 ### Installation
@@ -520,9 +520,9 @@ TOTAL               417     10    98%
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| Language | Python 3.11+ | Core implementation |
-| Validation | Pydantic 2.6 | Type-safe data models |
-| API (Optional) | FastAPI 0.110 | REST API server |
+| Language | Python 3.11-3.13 | Core implementation |
+| Validation | Pydantic 2.10+ | Type-safe data models |
+| API (Optional) | FastAPI 0.110+ | REST API server |
 | Testing | pytest 7.4 | Comprehensive test suite |
 | Containerization | Docker | Production deployment |
 | Date/Time | python-dateutil | Timestamp handling |

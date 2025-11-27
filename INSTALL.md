@@ -17,7 +17,7 @@ chmod +x setup.sh
 ## Manual Installation
 
 ### Prerequisites
-- Python 3.11 or higher
+- Python 3.11-3.13 (fully tested and supported)
 - pip (Python package manager)
 
 ### Installation Options
@@ -55,16 +55,16 @@ python -m app.main --file data/events.json --interval 60 --allowed-misses 3
 
 **Problem**: You see an error about Rust/Cargo not being installed when installing pydantic.
 
-**Solution 1** (Easiest): Install a compatible pre-built version:
+**Note**: This issue is resolved in Kairós v1.0.1+ which uses Pydantic 2.10+ with pre-built wheels for all platforms.
+
+**Solution 1** (Recommended): Update to latest Pydantic:
 ```bash
-pip install --only-binary :all: "pydantic>=2.0,<3.0"
+pip install "pydantic>=2.10.0"
 ```
 
-**Solution 2**: Install Rust toolchain (if you need the exact version):
+**Solution 2**: Use pre-built binaries only:
 ```bash
-# Windows: Download from https://rustup.rs/
-# Linux/Mac:
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+pip install --only-binary :all: pydantic
 ```
 
 **Solution 3**: Use Python packages from your system (if already installed):

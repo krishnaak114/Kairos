@@ -1,8 +1,8 @@
-# 🎉 Project Summary: Kair�s
+# 🎉 Project Summary: Kair�s
 
 ## Overview
 
-A **production-grade Kair�sing system** built as a portfolio project, demonstrating enterprise-level software engineering practices, comprehensive testing, and deployment readiness.
+A **production-grade Kair�sing system** built as a portfolio project, demonstrating enterprise-level software engineering practices, comprehensive testing, and deployment readiness.
 
 **Author**: Krishna Agrawal  
 **Contact**: kagrawalk510@gmail.com  
@@ -62,7 +62,7 @@ kairos/
 ## ✨ Features Implemented
 
 ### Core Features
-✅ Kair�sing with configurable thresholds  
+✅ Kair�sing with configurable thresholds  
 ✅ Multi-service tracking (independent monitoring)  
 ✅ Automatic sorting of unordered events  
 ✅ Graceful handling of malformed data  
@@ -164,7 +164,7 @@ kairos/
 - **Code Quality**: Following PEP 8, Black formatting, Flake8 linting
 - **Documentation**: Comprehensive docstrings and external docs
 - **Version Control**: Git with .gitignore and conventional commits
-- **Dependency Management**: Pinned versions in requirements.txt
+- **Dependency Management**: Flexible versions in requirements.txt (allows compatible updates)
 
 ### Algorithm Design
 - **Time Complexity**: O(n log n) - Efficient sorting algorithm
@@ -212,8 +212,8 @@ kairos/
 
 ### Core Technologies
 - **Python 3.11-3.13**: Modern Python with latest features
-- **Pydantic 2.6**: Data validation and settings
-- **FastAPI 0.110.3**: High-performance web framework (optional)
+- **Pydantic 2.10+**: Data validation and settings (Python 3.13 compatible)
+- **FastAPI 0.110+**: High-performance web framework (optional)
 - **uvicorn**: ASGI server for production
 - **pytest 7.4.3**: Testing framework
 
