@@ -1,0 +1,52 @@
+# ============================================
+# CORE DEPENDENCIES (Required)
+# ============================================
+
+# Data validation and type safety
+pydantic==2.6.0
+pydantic-settings==2.1.0
+
+# Date/time handling
+python-dateutil==2.8.2
+
+# ============================================
+# TESTING DEPENDENCIES
+# ============================================
+
+# Testing framework
+pytest==7.4.3
+pytest-cov==4.1.0  # Coverage reporting
+pytest-asyncio==0.21.1  # Async test support
+
+# ============================================
+# OPTIONAL: API MODE DEPENDENCIES
+# ============================================
+
+# Uncomment to enable API mode (production feature)
+fastapi==0.110.3
+uvicorn[standard]==0.22.0
+python-multipart==0.0.9  # For file uploads
+
+# ============================================
+# DEVELOPMENT DEPENDENCIES (Optional)
+# ============================================
+
+# Code formatting and linting
+# black==24.1.1
+# flake8==7.0.0
+# mypy==1.8.0
+
+# ============================================
+# PRODUCTION DEPENDENCIES (Optional)
+# ============================================
+
+# Database support (for audit logging)
+# sqlalchemy==2.0.25
+# psycopg2-binary==2.9.9  # PostgreSQL
+
+# Caching support
+# redis==5.0.1
+
+# Observability
+# structlog==24.1.0
+# sentry-sdk==1.40.0

@@ -1,0 +1,113 @@
+# Docker Compose configuration for Kairós
+# Includes optional production services (PostgreSQL, Redis)
+
+version: '3.8'
+
+services:
+  # Main application (CLI mode by default)
+  monitor:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: heartbeat_monitor
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    environment:
+      - LOG_LEVEL=INFO
+    command: >
+      python app/main.py 
+      --file data/events.json 
+      --interval 60 
+      --allowed-misses 3 
+      --output output/alerts.json
+    restart: unless-stopped
+
+  # Optional: API mode for production deployments
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: heartbeat_monitor_api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - LOG_LEVEL=INFO
+      - DATABASE_URL=postgresql://heartbeat:heartbeat@postgres:5432/heartbeat
+      - REDIS_URL=redis://redis:6379/0
+    command: >
+      python app/main.py 
+      --api 
+      --port 8000 
+      --log-level INFO
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    restart: unless-stopped
+    profiles:
+      - production
+
+  # Optional: PostgreSQL for alert history and audit logs
+  postgres:
+    image: postgres:15-alpine
+    container_name: heartbeat_postgres
+    environment:
+      POSTGRES_USER: heartbeat
+      POSTGRES_PASSWORD: heartbeat
+      POSTGRES_DB: heartbeat
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U heartbeat"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    profiles:
+      - production
+
+  # Optional: Redis for caching and rate limiting
+  redis:
+    image: redis:7-alpine
+    container_name: heartbeat_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
+    name: heartbeat_postgres_data
+  redis_data:
+    name: heartbeat_redis_data
+
+# Usage:
+# 
+# 1. CLI mode only (default):
+#    docker-compose up
+#
+# 2. Production mode with API + Database + Redis:
+#    docker-compose --profile production up -d
+#
+# 3. View logs:
+#    docker-compose logs -f
+#
+# 4. Stop all services:
+#    docker-compose down
+#
+# 5. Stop and remove volumes:
+#    docker-compose down -v
