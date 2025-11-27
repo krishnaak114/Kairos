@@ -1,4 +1,4 @@
-# Production-Ready Dockerfile for Kairós
+ï»¿# Production-Ready Dockerfile for KairÃ³s
 # Multi-stage build for optimized image size
 
 FROM python:3.11-slim as builder
@@ -32,6 +32,8 @@ COPY --from=builder /root/.local /root/.local
 # Copy application code
 COPY app/ ./app/
 COPY data/ ./data/
+COPY tests/ ./tests/
+COPY pytest.ini ./
 
 # Create output directory
 RUN mkdir -p /app/output
@@ -45,5 +47,5 @@ CMD ["python", "app/main.py", "--file", "data/events.json", "--interval", "60", 
 
 # Metadata labels
 LABEL maintainer="Krishna Agrawal <kagrawalk510@gmail.com>"
-LABEL description="Production-grade Kairósing system"
+LABEL description="KairÃ³s - Production-grade heartbeat monitoring system"
 LABEL version="1.0.0"
